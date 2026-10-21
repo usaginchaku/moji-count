@@ -1,0 +1,6 @@
+node_modules/
+.openai/
+qa/
+.DS_Store
+*.tar
+*.tar.gz

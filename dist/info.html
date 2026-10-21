@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f8f5">
+  <meta name="description" content="mojiの使い方、文字数の数え方、プライバシーについて。">
+  <title>インフォメーション — moji</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./mobile.mjs"></script>
+</head>
+<body>
+  <header class="site-header"><a href="./" class="brand" aria-label="moji ホーム"><span class="brand-mark" aria-hidden="true">m<span>.</span></span><span>moji<span class="brand-dot">.</span></span></a><nav><a class="info-link" href="./"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6-6 6 6 6m-6-6h16"/></svg>カウントに戻る</a></nav></header>
+  <main class="main-shell info-shell">
+    <div class="info-heading"><p class="eyebrow">INFORMATION</p><h1>インフォメーション<span class="title-dot">.</span></h1></div>
+    <section class="info-section"><h2>mojiについて</h2><p>書くことに集中するための、シンプルな文字数カウントです。文章を入力・貼り付けするだけで、文字数や読了時間を確認できます。</p></section>
+    <section class="info-section"><h2>使い方</h2><p>テキスト欄に文章を入力すると、結果が自動で更新されます。長い文章を扱うときは「リアルタイム」をオフにして、「カウントする」を押してください。</p><p>文字数の切り替えで、空白や改行を含めるかを選べます。目標文字数を設定すると、選択中の数え方で残りの文字数と達成率を表示します。目標欄を空にすると解除できます。</p><p>コピー・テキストファイルのダウンロード、全角・半角やかなの変換に対応しています。クリア・変換・貼り付けの直後は、画面下の「元に戻す」で操作前の文章に戻せます。</p><p>「貼り付け」ボタンが使えない場合は、入力欄を長押しするか、キーボードの貼り付け操作を使ってください。</p></section>
+    <section class="info-section"><h2>カウントの基準</h2><dl>
+      <dt>文字数</dt><dd>全角・半角ともに、Unicodeのコードポイント1つを1文字として数えます。改行は1文字です。複数のコードポイントで構成される絵文字や異体字は、見た目が1文字でも複数文字になります。</dd>
+      <dt>改行を除く／空白・改行を除く</dt><dd>「改行を除く」は改行のみを除外します。「空白・改行を除く」は半角・全角スペース、タブなどUnicodeの空白文字も除外します。</dd>
+      <dt>行数</dt><dd>明示的な改行で区切られた行を数えます。画面上の自動折り返しは含みません。入力が空の場合は0行、末尾の改行による空行は1行です。</dd>
+      <dt>原稿用紙</dt><dd>改行を除いた文字数を400で割り、端数を切り上げた目安です。段落の字下げや禁則処理、実際の原稿用紙への配置は反映していません。</dd>
+      <dt>読了時間・発表時間</dt><dd>読了時間は日本語600文字／分・英語200単語／分、発表時間は日本語300文字／分・英語150単語／分で計算します。日本語は漢字とかなを対象にし、英単語分の時間を加算します。60秒未満は秒、60秒以上は分で切り上げて表示します。実際の所要時間は文章や読み方によって変わります。</dd>
+      <dt>英単語数</dt><dd>空白や改行で区切られたまとまりのうち、英字または数字を含むものを1単語として数えます。数字だけのまとまりも含め、ハイフンでつながった語は1単語とします。</dd>
+      <dt>文字の内訳</dt><dd>空白・改行以外の文字を、ひらがな・カタカナ・漢字・英字・数字・その他に分類します。長音符はカタカナに含めます。異体字セレクタは内訳とは別に表示し、総文字数にも含まれます。</dd>
+      <dt>バイト数</dt><dd>改行をLFに統一し、BOMを含めずに計算します。UTF-8、UTF-16、Shift-JIS、EUC-JP、JISに対応します。各文字コードで表現できない文字は「?」に置き換えて計算し、その場合は注記を表示します。UTF-16のLFは2バイト、他の文字コードのLFは1バイトです。</dd>
+      <dt>SNSなどの文字数制限</dt><dd>投稿サービス独自の文字の重み付け、URLの短縮、絵文字の扱いは再現していません。投稿先の表示と異なる場合があります。</dd>
+    </dl></section>
+    <section class="info-section"><h2>入力内容とプライバシー</h2><p>文字数の計算や変換は、すべて端末のブラウザ内で行います。入力した文章をこのツールからサーバーへ送信することはありません。</p><p>インフォメーションページへの移動や再読み込みで入力が消えないよう、下書き・目標文字数・設定を現在のタブのセッションストレージに保存します。「クリア」で下書きを消去できます。ブラウザのタブ復元機能により、下書きが復元されることがあります。</p><p>クリップボードは「コピー」「貼り付け」を押したときだけ使用します。アクセス解析や広告は使用していません。</p></section>
+    <section class="info-section"><h2>動作環境・ライセンス</h2><p>最新版のChrome、Safari、Firefox、Edgeを推奨します。JavaScriptを有効にしてご利用ください。スマートフォン向けに、画面の拡大・縮小を抑止する設定をしています。</p><p>文字コードの変換には <a href="https://github.com/polygonplanet/encoding.js" target="_blank" rel="noopener noreferrer">encoding.js</a> を使用しています。<a href="./vendor/encoding-LICENSE.txt">ライセンス</a></p></section>
+    <div class="info-bottom"><a class="primary-button" href="./"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6-6 6 6 6m-6-6h16"/></svg>文字数カウントに戻る</a></div>
+  </main>
+  <footer class="site-footer info-footer"><span class="footer-signature">moji.</span><span>© 2026 moji</span></footer>
+</body>
+</html>
